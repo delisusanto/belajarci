@@ -14,9 +14,13 @@ class Halaman extends CI_Controller {
 		echo "ini halaman tentang";
 	}
 
-public function produk()
+	public function produk()
 	{
 		echo "ini halaman Produk";
 	}
 
+	public function page($view)
+	{
+		echo $view;
+	}
 }
