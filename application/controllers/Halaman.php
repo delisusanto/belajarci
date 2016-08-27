@@ -9,18 +9,18 @@ class Halaman extends CI_Controller {
 		echo "ini controller halaman";
 	}
 
-	public function tentang()
+	public function view($halaman = 'test')
 	{
-		echo "ini halaman tentang";
-	}
 
-	public function produk()
-	{
-		echo "ini halaman Produk";
-	}
+		if (!file_exists(APPPATH."views/pages/".$halaman.'.php')){
+			show_404();
+		} 
 
-	public function page($view)
-	{
-		echo $view;
+		$data['judul']=$halaman;
+
+		$this->load->view('templates/header', $data);
+		$this->load->view('pages/'.$halaman);
+		$this->load->view('templates/footer');
+
 	}
 }
